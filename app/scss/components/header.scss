@@ -1,0 +1,219 @@
+@import "../mixins/vars";
+@import "../mixins/typohraphy";
+.header {
+  width: 100%;
+  background: $white;
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+
+  .name {
+    @include h1_title;
+    font-size: 30px;
+    @media (max-width: 1200px) {
+      max-width: 100px;
+      margin-top: 14px;
+    }
+  }
+  .position {
+    font-size: 20px;
+    @include small_text;
+    color: $gray;
+    margin-bottom: 9px;
+    @media (max-width: 1200px) {
+      margin-bottom: 15px;
+      margin: 7px 0 15px;
+    }
+  }
+  &__left {
+    width: 40%;
+    padding: 29px 0;
+    @media (max-width: 1380px) {
+      width: 40%;
+    }
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+  &__right {
+    width: 60%;
+  }
+  .nav {
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    margin-block-start: 0;
+    padding: 0;
+    @media (min-width: 1200px) {
+      height: 60px;
+    }
+    &__item {
+      list-style: none;
+      display: inline;
+      position: relative;
+      &.active,
+      &:hover {
+        a {
+          &::before {
+            content: "";
+            display: block;
+            height: 7px;
+            width: calc(100% - 32px);
+            background: $mainColor;
+            position: absolute;
+            top: -17px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0px 0px 4px 4px;
+          }
+        }
+      }
+    }
+    &__link {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 130%;
+      color: $black;
+      margin: 24px 19px 0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  .mobile-nav {
+    margin-top: 50px;
+  }
+  .mobile-menu {
+    display: none;
+    min-height: 60px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: fixed;
+    z-index: 11;
+    background-color: $white;
+    @media (max-width: 1200px) {
+      display: flex;
+    }
+    .bar {
+      display: flex;
+      z-index: 1;
+      position: relative;
+      width: 100%;
+      background: $white;
+      padding: 0 23px;
+    }
+    .person-data {
+      width: calc(100% - 50px);
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+    }
+    &__nav-item {
+      list-style: none;
+      width: 100%;
+      a {
+        display: flex;
+        font-size: 24px;
+        margin: 20px 41px;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: $gray;
+        }
+      }
+    }
+    &__icon {
+      width: 31px;
+      height: 31px;
+      position: relative;
+      margin: 20px 20px;
+      top: 0;
+      right: -20px;
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: $mainColor;
+        transition: all ease-in-out 0.15s;
+      }
+      &::before {
+        top: 10px;
+      }
+      &::after {
+        top: 20px;
+      }
+    }
+    &__container {
+      position: absolute;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      height: 500px;
+      background-color: $white;
+      transition: all ease-in-out 0.5s;
+      width: 100%;
+      left: 0;
+      &::after {
+        content: "";
+        display: block;
+        width: 135px;
+        height: 297px;
+        background: url(../img/abstraction-right1.png);
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        background-size: contain;
+      }
+      transform: translatey(-600px);
+    }
+    &.open {
+      .mobile-menu__container {
+        height: 500px;
+        transform: translatey(0);
+        opacity: 1;
+        display: flex;
+        padding-bottom: 20px;
+        border-bottom: 3px solid $mainColor;
+        left: 0;
+      }
+      .mobile-menu__icon {
+        &::before {
+          transform: rotate(-45deg);
+        }
+        &::after {
+          top: 10px;
+          transform: rotate(45deg);
+        }
+      }
+    }
+    &__btn {
+      position: relative;
+      z-index: 1;
+      bottom: 0;
+      width: 289px;
+      height: 45px;
+      background: $mainColor;
+      border-radius: 10px;
+      margin-left: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Verdana";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 19px;
+      color: $white;
+    }
+  }
+}
