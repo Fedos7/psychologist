@@ -1,0 +1,66 @@
+@import "./mixins/vars";
+@import "./mixins/libs";
+@import "./mixins/fonts";
+@import "./mixins/typohraphy";
+// @import "./main-page.scss";
+// @import "./consultation.scss";
+// @import "./reviews.scss";
+// @import "./components/header";
+// @import "./components/footer";
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background: $white;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  @include h1_title;
+}
+h2 {
+  @include h2_title;
+}
+.container {
+  max-width: 1128px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  @media (max-width: 1200px) {
+    padding: 0 23px;
+  }
+}
+.d-none {
+  display: none !important;
+}
+.telegram-button {
+  padding: 10px 27px;
+  background: $mainColor;
+  border-radius: 10px;
+  max-width: 450px;
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  color: $white;
+  text-decoration: none;
+  border: 2px solid $mainColor;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  @media (max-width: 991px) {
+    font-size: 19px;
+  }
+  &:hover {
+    background: $white;
+    color: $mainColor;
+  }
+}
